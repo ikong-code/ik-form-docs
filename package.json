@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "dumi-template",
+  "name": "ik-form-docs",
   "version": "1.0.0",
   "scripts": {
     "start": "dumi dev",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/umijs/dumi-template",
+    "url": "https://github.com/ikong-code/ik-form-docs",
     "branch": "main"
   },
   "lint-staged": {
@@ -33,6 +33,7 @@
     ]
   },
   "dependencies": {
+    "antd": "3",
     "react": "^16.12.0"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "dumi": "^1.1.0",
     "father-build": "^1.19.1",
     "gh-pages": "^3.0.0",
+    "ik-form-react": "0.0.4",
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "yorkie": "^2.0.0"
