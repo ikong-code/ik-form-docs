@@ -38550,13 +38550,13 @@
       i = n.n(o),
       a = n('q3YX'),
       c =
-        "import React from 'react';\r\nimport { Button } from 'antd'\r\nimport { XForm, useForm } from 'ik-form-react'\r\nimport \"antd/dist/antd.css\"\r\n\r\nconst schema = [\r\n  {\r\n    key: 'firstName',\r\n    type: 'XInput',\r\n    required: true,\r\n    ui: {\r\n      label: 'First Name',\r\n    },\r\n    props: {\r\n      placeholder: 'first name'\r\n    }\r\n  },\r\n  {\r\n    key: 'secondName',\r\n    type: 'XInput',\r\n    required: true,\r\n    ui: {\r\n      label: 'Second Name',\r\n    },\r\n    props: {\r\n      placeholder: 'second name'\r\n    }\r\n  },\r\n]\r\n\r\nexport default ({ title }: { title: string }) => {\r\n  const formInstance = useForm({\r\n    schema,\r\n  })\r\n\r\n  const handleClick = () => {\r\n    formInstance.submit((res: any) => {\r\n      console.log(res)\r\n      alert(JSON.stringify(res))\r\n    })\r\n  }\r\n\r\n  return <XForm form={formInstance}>\r\n    <Button onClick={formInstance.resetFields}>\u91cd\u7f6e</Button>\r\n    <Button onClick={handleClick}>\u63d0\u4ea4</Button>\r\n  </XForm>\r\n};",
+        "import React from 'react';\nimport { Button } from 'antd';\nimport { XForm, useForm } from 'ik-form-react';\nimport 'antd/dist/antd.css';\n\nconst schema = [\n  {\n    key: 'firstName',\n    type: 'XInput',\n    required: true,\n    ui: {\n      label: 'First Name',\n    },\n    props: {\n      placeholder: 'first name',\n    },\n  },\n  {\n    key: 'secondName',\n    type: 'XInput',\n    required: true,\n    ui: {\n      label: 'Second Name',\n    },\n    props: {\n      placeholder: 'second name',\n    },\n  },\n];\n\nexport default ({ title }: { title: string }) => {\n  const formInstance = useForm({\n    schema,\n  });\n\n  const handleClick = () => {\n    formInstance.submit((res: any) => {\n      console.log(res);\n      alert(JSON.stringify(res));\n    });\n  };\n\n  return (\n    <XForm form={formInstance}>\n      <Button onClick={formInstance.resetFields}>\u91cd\u7f6e</Button>\n      <Button onClick={handleClick}>\u63d0\u4ea4</Button>\n    </XForm>\n  );\n};",
       l =
-        "import React from 'react';\r\nimport { Button } from 'antd'\r\nimport { XForm, useForm } from 'ik-form-react'\r\nimport \"antd/dist/antd.css\"\r\n\r\ninterface Field {\r\n  visible: boolean,\r\n  value: any,\r\n  rule: any\r\n}\r\n\r\nconst schema = [\r\n  {\r\n    key: 'aa',\r\n    type: 'XSelect',\r\n    required: true,\r\n    defaultValue: true,\r\n    ui: {\r\n      label: 'aa',\r\n    },\r\n    props: {\r\n      options: [\r\n        { label: 'bb visible', value: true },\r\n        { label: 'bb hidden', value: false }\r\n      ],\r\n      placeholder: 'first name'\r\n    }\r\n  },\r\n  {\r\n    key: 'bb',\r\n    type: 'XInput',\r\n    required: true,\r\n    ui: {\r\n      label: 'bb',\r\n    },\r\n    props: {\r\n      placeholder: 'bb name'\r\n    }\r\n  },\r\n  {\r\n    key: 'cc',\r\n    type: 'XInput',\r\n    required: true,\r\n    ui: {\r\n      label: 'cc',\r\n    },\r\n    props: {\r\n      placeholder: 'cc name'\r\n    }\r\n  },\r\n]\r\n\r\nexport default () => {\r\n\r\n  const watchEffects = {\r\n    'aa.value': (field: Field) => {\r\n      console.log(field)\r\n      formInstance.setFieldState('bb|cc', { visible: field.value })\r\n    },\r\n  }\r\n\r\n  const formInstance = useForm({\r\n    schema,\r\n    watch: watchEffects\r\n  })\r\n\r\n  const handleClick = () => {\r\n    formInstance.submit((res: any) => {\r\n      console.log(res)\r\n      alert(JSON.stringify(res))\r\n    })\r\n  }\r\n\r\n  return <XForm form={formInstance}>\r\n    <Button onClick={formInstance.resetFields}>\u91cd\u7f6e</Button>\r\n    <Button onClick={handleClick}>\u63d0\u4ea4</Button>\r\n  </XForm>\r\n};",
+        "import React from 'react';\nimport { Button } from 'antd';\nimport { XForm, useForm } from 'ik-form-react';\nimport 'antd/dist/antd.css';\n\ninterface Field {\n  visible: boolean;\n  value: any;\n  rule: any;\n}\n\nconst schema = [\n  {\n    key: 'aa',\n    type: 'XSelect',\n    required: true,\n    defaultValue: true,\n    ui: {\n      label: 'aa',\n    },\n    props: {\n      options: [\n        { label: 'bb visible', value: true },\n        { label: 'bb hidden', value: false },\n      ],\n      placeholder: 'first name',\n    },\n  },\n  {\n    key: 'bb',\n    type: 'XInput',\n    required: true,\n    ui: {\n      label: 'bb',\n    },\n    props: {\n      placeholder: 'bb name',\n    },\n  },\n  {\n    key: 'cc',\n    type: 'XInput',\n    required: true,\n    ui: {\n      label: 'cc',\n    },\n    props: {\n      placeholder: 'cc name',\n    },\n  },\n];\n\nexport default () => {\n  const watchEffects = {\n    'aa.value': (field: Field) => {\n      console.log(field);\n      formInstance.setFieldState('bb|cc', { visible: field.value });\n    },\n  };\n\n  const formInstance = useForm({\n    schema,\n    watch: watchEffects,\n  });\n\n  const handleClick = () => {\n    formInstance.submit((res: any) => {\n      console.log(res);\n      alert(JSON.stringify(res));\n    });\n  };\n\n  return (\n    <XForm form={formInstance}>\n      <Button onClick={formInstance.resetFields}>\u91cd\u7f6e</Button>\n      <Button onClick={handleClick}>\u63d0\u4ea4</Button>\n    </XForm>\n  );\n};",
       u =
-        "import React from 'react';\r\nimport { Button } from 'antd'\r\nimport { XForm, useForm } from 'ik-form-react'\r\nimport \"antd/dist/antd.css\"\r\n\r\ninterface Field {\r\n  visible: boolean,\r\n  value: any,\r\n  rule: any\r\n}\r\n\r\nconst schema = [\r\n  {\r\n    key: 'aa',\r\n    type: 'XSelect',\r\n    required: true,\r\n    defaultValue: true,\r\n    ui: {\r\n      label: 'aa',\r\n    },\r\n    props: {\r\n      options: [\r\n        { label: 'bb visible', value: true },\r\n        { label: 'bb hidden', value: false }\r\n      ],\r\n      placeholder: 'first name'\r\n    }\r\n  },\r\n  {\r\n    key: 'bb',\r\n    type: 'XInput',\r\n    required: true,\r\n    ui: {\r\n      label: 'Second Name',\r\n    },\r\n    props: {\r\n      placeholder: 'second name'\r\n    }\r\n  },\r\n]\r\n\r\nexport default () => {\r\n\r\n  const watchEffects = {\r\n    'aa.value': (field: Field) => {\r\n      console.log(field)\r\n      formInstance.setFieldState('bb', { visible: field.value })\r\n    },\r\n  }\r\n\r\n  const formInstance = useForm({\r\n    schema,\r\n    watch: watchEffects\r\n  })\r\n\r\n  const handleClick = () => {\r\n    formInstance.submit((res: any) => {\r\n      console.log(res)\r\n      alert(JSON.stringify(res))\r\n    })\r\n  }\r\n\r\n  return <XForm form={formInstance}>\r\n    <Button onClick={formInstance.resetFields}>\u91cd\u7f6e</Button>\r\n    <Button onClick={handleClick}>\u63d0\u4ea4</Button>\r\n  </XForm>\r\n};",
+        "import React from 'react';\nimport { Button } from 'antd';\nimport { XForm, useForm } from 'ik-form-react';\nimport 'antd/dist/antd.css';\n\ninterface Field {\n  visible: boolean;\n  value: any;\n  rule: any;\n}\n\nconst schema = [\n  {\n    key: 'aa',\n    type: 'XSelect',\n    required: true,\n    defaultValue: true,\n    ui: {\n      label: 'aa',\n    },\n    props: {\n      options: [\n        { label: 'bb visible', value: true },\n        { label: 'bb hidden', value: false },\n      ],\n      placeholder: 'first name',\n    },\n  },\n  {\n    key: 'bb',\n    type: 'XInput',\n    required: true,\n    ui: {\n      label: 'Second Name',\n    },\n    props: {\n      placeholder: 'second name',\n    },\n  },\n];\n\nexport default () => {\n  const watchEffects = {\n    'aa.value': (field: Field) => {\n      console.log(field);\n      formInstance.setFieldState('bb', { visible: field.value });\n    },\n  };\n\n  const formInstance = useForm({\n    schema,\n    watch: watchEffects,\n  });\n\n  const handleClick = () => {\n    formInstance.submit((res: any) => {\n      console.log(res);\n      alert(JSON.stringify(res));\n    });\n  };\n\n  return (\n    <XForm form={formInstance}>\n      <Button onClick={formInstance.resetFields}>\u91cd\u7f6e</Button>\n      <Button onClick={handleClick}>\u63d0\u4ea4</Button>\n    </XForm>\n  );\n};",
       s =
-        "import React from 'react';\r\nimport { Button } from 'antd'\r\nimport { XForm, useForm } from 'ik-form-react'\r\nimport \"antd/dist/antd.css\"\r\n\r\ninterface Field {\r\n  visible: boolean,\r\n  value: any,\r\n  rule: any\r\n}\r\n\r\nconst schema = [\r\n  {\r\n    key: 'aa',\r\n    type: 'XSelect',\r\n    required: true,\r\n    defaultValue: true,\r\n    ui: {\r\n      label: 'aa',\r\n    },\r\n    props: {\r\n      options: [\r\n        { label: 'bb visible', value: true },\r\n        { label: 'bb hidden', value: false }\r\n      ],\r\n      placeholder: 'first name'\r\n    }\r\n  },\r\n  {\r\n    key: 'bb',\r\n    type: 'XInput',\r\n    required: true,\r\n    ui: {\r\n      label: 'bb',\r\n    },\r\n    props: {\r\n      placeholder: 'bb name'\r\n    }\r\n  },\r\n  {\r\n    key: 'cc',\r\n    type: 'XInput',\r\n    required: true,\r\n    ui: {\r\n      label: 'cc',\r\n    },\r\n    props: {\r\n      placeholder: 'cc name'\r\n    }\r\n  },\r\n]\r\n\r\nexport default () => {\r\n\r\n  const watchEffects = {\r\n    'aa.value': (field: Field) => {\r\n      formInstance.setFieldState('bb', { visible: field.value })\r\n    },\r\n    \"bb.visible\": (field: any) => {\r\n      formInstance.setFieldValue('cc', 'hello world ' + new Date().getTime())\r\n    }\r\n  }\r\n\r\n  const formInstance = useForm({\r\n    schema,\r\n    watch: watchEffects\r\n  })\r\n\r\n  const handleClick = () => {\r\n    formInstance.submit((res: any) => {\r\n      console.log(res)\r\n      alert(JSON.stringify(res))\r\n    })\r\n  }\r\n\r\n  return <XForm form={formInstance}>\r\n    <Button onClick={formInstance.resetFields}>\u91cd\u7f6e</Button>\r\n    <Button onClick={handleClick}>\u63d0\u4ea4</Button>\r\n  </XForm>\r\n};",
+        "import React from 'react';\nimport { Button } from 'antd';\nimport { XForm, useForm } from 'ik-form-react';\nimport 'antd/dist/antd.css';\n\ninterface Field {\n  visible: boolean;\n  value: any;\n  rule: any;\n}\n\nconst schema = [\n  {\n    key: 'aa',\n    type: 'XSelect',\n    required: true,\n    defaultValue: true,\n    ui: {\n      label: 'aa',\n    },\n    props: {\n      options: [\n        { label: 'bb visible', value: true },\n        { label: 'bb hidden', value: false },\n      ],\n      placeholder: 'first name',\n    },\n  },\n  {\n    key: 'bb',\n    type: 'XInput',\n    required: true,\n    ui: {\n      label: 'bb',\n    },\n    props: {\n      placeholder: 'bb name',\n    },\n  },\n  {\n    key: 'cc',\n    type: 'XInput',\n    required: true,\n    ui: {\n      label: 'cc',\n    },\n    props: {\n      placeholder: 'cc name',\n    },\n  },\n];\n\nexport default () => {\n  const watchEffects = {\n    'aa.value': (field: Field) => {\n      formInstance.setFieldState('bb', { visible: field.value });\n    },\n    'bb.visible': (field: any) => {\n      formInstance.setFieldValue('cc', 'hello world ' + new Date().getTime());\n    },\n  };\n\n  const formInstance = useForm({\n    schema,\n    watch: watchEffects,\n  });\n\n  const handleClick = () => {\n    formInstance.submit((res: any) => {\n      console.log(res);\n      alert(JSON.stringify(res));\n    });\n  };\n\n  return (\n    <XForm form={formInstance}>\n      <Button onClick={formInstance.resetFields}>\u91cd\u7f6e</Button>\n      <Button onClick={handleClick}>\u63d0\u4ea4</Button>\n    </XForm>\n  );\n};",
       f = {
         'started-demo': {
           component: n('AA5n').default,
@@ -46107,19 +46107,18 @@
             o.a.createElement(
               'p',
               null,
-              '\u4e4b\u524d\u5c1d\u8bd5\u8fc7\u5f88\u591a\u8868\u5355\u5e93\uff0c\u5982 formik\u3001formily\u3001Uform \u7b49\uff0c\u4f46\u5b83\u4eec\u592a\u91cd\u7684\uff0c\u6211\u53ea\u662f\u7b80\u5355\u7684\u3001\u5e38\u7528\u7684\u8868\u5355\uff0c\u800c\u4e14\u9700\u8981\u4e00\u4e9b\u81ea\u5b9a\u4e49\u7684\u7ec4\u4ef6\uff0c\u6bd4\u5982formilyv1\uff0c\u7ec4\u4ef6\u591a\uff0c\u6e32\u67d3\u65f6\u95f4\u5c31\u8d8a\u957f\uff0c\u5728\u4e00\u4e2a\u4e8c\u5341\u591a\u4e2a\u7ec4\u4ef6\u7684\u8868\u5355\u91cc\uff0c\u5728 chorme \u4e0b\u6e32\u67d3\u65f6\u95f4\u6709\u4e00\u79d2\u591a\uff0c\u4f46\u5728 ie \u4e0b\u65f6\u95f4\u957f\u8fbe 6s\uff0c\u4f18\u5316\u90fd\u4f18\u5316\u4e0d\u52a8\u3002 \u800c\u4e14\u6211\u5e0c\u671b\u6709\u4e00\u4e2a\u4ee5\u4e0b\u529f\u80fd\u7684\u8868\u5355\u5e93\uff1a',
+              '\u4e4b\u524d\u5c1d\u8bd5\u8fc7\u5f88\u591a\u8868\u5355\u5e93\uff0c\u5982 formik\u3001formily\u3001Uform \u7b49\uff0c\u4f46\u5b83\u4eec\u592a\u91cd\u7684\uff0c\u6211\u53ea\u662f\u7b80\u5355\u7684\u3001\u5e38\u7528\u7684\u8868\u5355\uff0c\u800c\u4e14\u9700\u8981\u4e00\u4e9b\u81ea\u5b9a\u4e49\u7684\u7ec4\u4ef6\uff0c\u6bd4\u5982 formilyv1\uff0c\u7ec4\u4ef6\u591a\uff0c\u6e32\u67d3\u65f6\u95f4\u5c31\u8d8a\u957f\uff0c\u5728\u4e00\u4e2a\u4e8c\u5341\u591a\u4e2a\u7ec4\u4ef6\u7684\u8868\u5355\u91cc\uff0c\u5728 chorme \u4e0b\u6e32\u67d3\u65f6\u95f4\u6709\u4e00\u79d2\u591a\uff0c\u4f46\u5728 ie \u4e0b\u65f6\u95f4\u957f\u8fbe 6s\uff0c\u4f18\u5316\u90fd\u4f18\u5316\u4e0d\u52a8\u3002 \u800c\u4e14\u6211\u5e0c\u671b\u6709\u4e00\u4e2a\u4ee5\u4e0b\u529f\u80fd\u7684\u8868\u5355\u5e93\uff1a',
             ),
             o.a.createElement(
               'ul',
               null,
               o.a.createElement('li', null, '\u8f7b\u91cf'),
               o.a.createElement('li', null, '\u4f7f\u7528\u7b80\u5355'),
-              o.a.createElement('li', null, '\u9ad8\u6027\u80fd'),
-            ),
-            o.a.createElement(
-              'p',
-              null,
-              '\u6240\u4ee5\u6211\u81ea\u5df1\u65b0\u5efa\u4e00\u4e2a\u8868\u5355\u5e93\u3002',
+              o.a.createElement(
+                'li',
+                null,
+                '\u9ad8\u6027\u80fd \u6240\u4ee5\u6211\u81ea\u5df1\u65b0\u5efa\u4e00\u4e2a\u8868\u5355\u5e93\u3002',
+              ),
             ),
             o.a.createElement(
               'h3',
@@ -64775,7 +64774,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/api/index.md',
-                updatedTime: 1660741817866,
+                updatedTime: 1660793979e3,
                 nav: { title: 'Form Api', path: '/api' },
                 slugs: [
                   { depth: 2, value: 'Form Api', heading: 'form-api' },
@@ -64795,7 +64794,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/guide/Introdution.md',
-                updatedTime: 1660742160342,
+                updatedTime: 1660793979e3,
                 nav: { title: 'Introdution', path: '/guide', order: 0 },
                 slugs: [
                   { depth: 2, value: '\u4ecb\u7ecd', heading: '\u4ecb\u7ecd' },
@@ -64832,7 +64831,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/guide/Started/index.md',
-                updatedTime: 1660742126585,
+                updatedTime: 1660793979e3,
                 nav: { title: 'Started', path: '/guide' },
                 slugs: [
                   { depth: 2, value: 'Started', heading: 'started' },
@@ -64855,7 +64854,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/guide/Watch/index.md',
-                updatedTime: 1660742190456,
+                updatedTime: 1660793979e3,
                 nav: { title: 'Watch', path: '/guide' },
                 slugs: [
                   { depth: 2, value: 'Watch', heading: 'watch' },
